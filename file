@@ -1,0 +1,411 @@
+#!/bin/bash
+clear
+disable="su -c pm disable"
+enable="su -c pm enable"
+printf "\e[1;101m\nPRO REM'S THOK THAK\n\e[0m\n\n"
+printf "\e[1;91m1. Disable app\e[1;92m\n2. Enable apps\n\e[1;93m3. Activate Gaming mode\n\e[1;94m4. Deactivate Gaming Mode."
+echo 
+echo
+printf "\e[1;96mEnter choice:   "
+read o
+clear
+if [ "$o" == "x" ]; then
+echo "EXITING..."
+sleep 2s
+fi
+case $o in
+1) printf "\e[1;91mDisabling apps \e[0m \n"
+echo
+echo "Enter package name: "
+read d
+while [ "$d" != "x" ]
+do $disable $d
+echo
+printf "Enter package name:  "
+read d;
+done
+;;
+
+2) echo "Enabling apps..."
+echo
+su -c pm list packages -d
+echo 
+echo "Enter package name: "
+read e
+while [ "$e" != "x" ]
+do $enable $e
+echo "Enter package name: "
+read e;
+done
+;;
+
+3) echo "Activating Gaming mode..."
+echo "Starting in..."
+sleep 2s
+echo "3"
+sleep 1s
+echo "2"
+sleep 1s
+echo "1"
+sleep 1s
+$disable com.android.chrome
+$disable com.android.vending
+$disable com.instagram.android
+$disable com.facebook.lite
+$disable com.google.android.play.games
+$disable com.android.youtube
+$disable com.whatsapp
+	 
+$disable org.telegram.messenger
+	 
+$disable com.snaptube.premium
+	 
+$disable org.lineageos.updater
+	 
+$disable com.shopee.id
+	 
+$disable com.yowhatsapp
+	 
+$disable com.google.android.apps.youtube.creator
+	 
+$disable com.google.android.youtube
+	 
+$disable com.antutu.ABenchMark
+	 
+$disable org.mozilla.firefox
+	 
+$disable photo.video.instasaveapp
+	 
+$disable com.revenge.gramophone
+	 
+$disable com.tubebuddy.tubebuddy_mobile
+	 
+$disable projekt.substratum
+	 
+$disable com.franco.kernel
+	 
+$disable com.keramidas.TitaniumBackup
+	 
+$disable com.picsart.studio
+	 
+$disable com.google.android.apps.translate
+	 
+$disable com.alensw.PicFolder
+	 
+$disable vul.max
+	 
+$disable free.vpn.unblock.proxy.turbovpn
+	 
+$disable ru.zdevs.zarchiver.pro
+	 
+$disable com.sp.protector.free
+	 
+$disable com.google.android.GoogleCamera
+	 
+$disable com.google.android.apps.wallpaper
+	 
+$disable com.android.email
+	 
+$disable org.lineageos.updater
+	 
+$disable com.shopee.id
+	 
+$disable com.yowhatsapp
+	 
+$disable mark.via.gp
+	 
+$disable com.superior.superiorwalls
+	 
+$disable com.android.contacts
+	 
+$disable com.adobe.lrmobile
+	 
+$disable com.dv.adm
+	 
+$disable com.kiwibrowser.browser
+	 
+$disable com.facebook.katana
+	 
+$disable com.google.android.gm
+	 
+$disable instake.repost.instagramphotodownloader.instagramvideodownloader
+	 
+$disable dev.hdcstudio.sub4subpaid
+	 
+$disable com.imaginstudio.imagetools.pixellab
+	 
+$disable com.antutu.benchmark.full
+	 
+$disable com.aospextended.aexpapers
+	 
+$disable cn.gavinliu.snapmod
+	 
+$disable com.primatelabs.geekbench5
+	 
+$disable com.aerolla
+	 
+$disable com.google.android.apps.photos
+	 
+$disable com.statussaver.wapp
+	 $disable org.lineageos.audiofx
+	 $disable com.android.webview
+	 $disable com.mixplorer
+	 $disable ru.zdevs.zarchiver
+	 $disable com.oasisfeng.greenify 
+	 $disable ru.andr7e.deviceinfohw
+	 $disable com.handycloset.android.eraser
+	 $disable org.lineageos.jelly
+	 $disable ru.andr7e.deviceinfohw
+	 $disable com.oasisfeng.greenify
+	 $disable org.lineageos.audiofx
+	 $disable com.android.webview
+	 $disable com.mixplorer
+	 $disable ru.zdevs.zarchiver
+	 $disable com.oasisfeng.greenify 
+	 $disable ru.andr7e.deviceinfohw
+	 $disable com.handycloset.android.eraser
+	 $disable org.lineageos.jelly
+	 $disable ru.andr7e.deviceinfohw
+	 $disable com.oasisfeng.greenify
+	 $disable com.google.android.gm
+ $disable com.android.vending
+ $disable com.facebook.katana
+ $disable com.google.android.youtube
+ $disable com.whatsapp
+ $disable com.futuremark.dmandroid.application
+ $disable com.intsig.camscanner
+ $disable com.google.android.apps.docs
+ $disable com.ryzenrise.intromaker
+ $disable  com.nexstreaming.app.kinemasterfree
+ $disable com.facebook.mlite
+ $disable balti.migrate.flasher
+ $disable balti.migrate.ng
+ $disable com.mxtech.videoplayer.pro
+ $disable com.jio.myjio
+ $disable splendid.postermaker.designer
+ $disable cn.wps.moffice_eng
+ $disable com.hyperionics.avar
+ $disable com.battlenet.showguide
+ $disable com.thinkyeah.galleryvault
+ $disable com.google.android.apps.docs. $disable editors.docs
+ $disable com.intsig.lic.camscanner
+ $disable com.sk.thumbnailmaker
+ $disable com.chrome.dev
+ $disable com.opalastudios.pads
+ $disable com.rarlab.rar
+ $disable com.realtechvr.glview
+ $disable eu.thedarken.sdm
+ $disable com.sbi.SBIFreedom.Plus
+ $disable com.android.calculator2
+ $disable com.android.calendar
+ $disable com.android.camera2
+ $disable com.android.documentsui
+ $disable com.android.fmradio
+ $disable com.android.gallery3d
+ $disable com.android.stk
+ $disable com.android.soundrecorder
+ $disable ru.andr7e.deviceinfohw
+ $disable com.myairtelapp
+ $disable com.sdk.hummingbirdfood.delivery
+ $disable skynet.cputhrottlingtest
+ $disable com.smule.singandroid
+ $disable com.zdivdev.ebook.advbash
+ $disable com.zdivdev.ebook.bashbegin
+ $disable com.apkzube.learnpythonpro
+ $disable com.zdivdev.ebook.scripttool
+ $disable com.supercell.clashroyale
+ $disable com.google.android.youtube
+ $disable org.fdroid.fdroid
+ $disable idm.internet.download.manager.plus
+ $disable com.rahul.videoderbeta
+ $disable com.socialnmobile.dictapps.notepad.color.note
+ $disable org.schabi.newpipe
+ clear
+echo "Gaming Mode Activated"
+ ;;
+ 
+ 4) echo "Disabling Gaming Mode..."
+ echo "Starting in..."
+sleep 2s
+echo "3"
+sleep 1s
+echo "2"
+sleep 1s
+echo "1"
+sleep 1s
+ $enable com.android.chrome
+$enable com.android.vending
+$enable com.instagram.android
+$enable com.facebook.lite
+$enable com.google.android.play.games
+$enable com.android.youtube
+$enable com.whatsapp
+	 
+$enable org.telegram.messenger
+	 
+$enable com.snaptube.premium
+	 
+$enable org.lineageos.updater
+	 
+$enable com.shopee.id
+	 
+$enable com.yowhatsapp
+	 
+$enable com.google.android.apps.youtube.creator
+	 
+$enable com.google.android.youtube
+	 
+$enable com.antutu.ABenchMark
+	 
+$enable org.mozilla.firefox
+	 
+$enable photo.video.instasaveapp
+	 
+$enable com.revenge.gramophone
+	 
+$enable com.tubebuddy.tubebuddy_mobile
+	 
+$enable projekt.substratum
+	 
+$enable com.franco.kernel
+	 
+$enable com.keramidas.TitaniumBackup
+	 
+$enable com.picsart.studio
+	 
+$enable com.google.android.apps.translate
+	 
+$enable com.alensw.PicFolder
+	 
+$enable vul.max
+	 
+$enable free.vpn.unblock.proxy.turbovpn
+	 
+$enable ru.zdevs.zarchiver.pro
+	 
+$enable com.sp.protector.free
+	 
+$enable com.google.android.GoogleCamera
+	 
+$enable com.google.android.apps.wallpaper
+	 
+$enable com.android.email
+	 
+$enable org.lineageos.updater
+	 
+$enable com.shopee.id
+	 
+$enable com.yowhatsapp
+	 
+$enable mark.via.gp
+	 
+$enable com.superior.superiorwalls
+	 
+$enable com.android.contacts
+	 
+$enable com.adobe.lrmobile
+	 
+$enable com.dv.adm
+	 
+$enable com.kiwibrowser.browser
+	 
+$enable com.facebook.katana
+	 
+$enable com.google.android.gm
+	 
+$enable instake.repost.instagramphotodownloader.instagramvideodownloader
+	 
+$enable dev.hdcstudio.sub4subpaid
+	 
+$enable com.imaginstudio.imagetools.pixellab
+	 
+$enable com.antutu.benchmark.full
+	 
+$enable com.aospextended.aexpapers
+	 
+$enable cn.gavinliu.snapmod
+	 
+$enable com.primatelabs.geekbench5
+	 
+$enable com.aerolla
+	 
+$enable com.google.android.apps.photos
+	 
+$enable com.statussaver.wapp
+	 $enable org.lineageos.audiofx
+	 $enable com.android.webview
+	 $enable com.mixplorer
+	 $enable ru.zdevs.zarchiver
+	 $enable com.oasisfeng.greenify 
+	 $enable ru.andr7e.deviceinfohw
+	 $enable com.handycloset.android.eraser
+	 $enable org.lineageos.jelly
+	 $enable ru.andr7e.deviceinfohw
+	 $enable com.oasisfeng.greenify
+	 $enable org.lineageos.audiofx
+	 $enable com.android.webview
+	 $enable com.mixplorer
+	 $enable ru.zdevs.zarchiver
+	 $enable com.oasisfeng.greenify 
+	 $enable ru.andr7e.deviceinfohw
+	 $enable com.handycloset.android.eraser
+	 $enable org.lineageos.jelly
+	 $enable ru.andr7e.deviceinfohw
+	 $enable com.oasisfeng.greenify
+	 $enable com.google.android.gm
+ $enable com.android.vending
+ $enable com.facebook.katana
+ $enable com.google.android.youtube
+ $enable com.whatsapp
+ $enable com.futuremark.dmandroid.application
+ $enable com.intsig.camscanner
+ $enable com.google.android.apps.docs
+ $enable com.ryzenrise.intromaker
+ $enable  com.nexstreaming.app.kinemasterfree
+ $enable com.facebook.mlite
+ $enable balti.migrate.flasher
+ $enable balti.migrate.ng
+ $enable com.mxtech.videoplayer.pro
+ $enable com.jio.myjio
+ $enable splendid.postermaker.designer
+ $enable cn.wps.moffice_eng
+ $enable com.hyperionics.avar
+ $enable com.battlenet.showguide
+ $enable com.thinkyeah.galleryvault
+ $enable com.google.android.apps.docs. $enable editors.docs
+ $enable com.intsig.lic.camscanner
+ $enable com.sk.thumbnailmaker
+ $enable com.chrome.dev
+ $enable com.opalastudios.pads
+ $enable com.rarlab.rar
+ $enable com.realtechvr.glview
+ $enable eu.thedarken.sdm
+ $enable com.sbi.SBIFreedom.Plus
+ $enable com.android.calculator2
+ $enable com.android.calendar
+ $enable com.android.camera2
+ $enable com.android.documentsui
+ $enable com.android.fmradio
+ $enable com.android.gallery3d
+ $enable com.android.stk
+ $enable com.android.soundrecorder
+ $enable ru.andr7e.deviceinfohw
+ $enable com.myairtelapp
+ $enable com.sdk.hummingbirdfood.delivery
+ $enable skynet.cputhrottlingtest
+ $enable com.smule.singandroid
+ $enable com.zdivdev.ebook.advbash
+ $enable com.zdivdev.ebook.bashbegin
+ $enable com.apkzube.learnpythonpro
+ $enable com.zdivdev.ebook.scripttool
+ $enable com.supercell.clashroyale
+ $enable com.google.android.youtube
+ $enable org.fdroid.fdroid
+$enable idm.internet.download.manager.plus
+ $enable com.rahul.videoderbeta
+ $enable com.socialnmobile.dictapps.notepad.color.note
+  $enable org.schabi.newpipe
+clear
+echo "Gaming Mode Deactivated"
+ ;;
+esac
