@@ -140,10 +140,13 @@ command="$1 $2 $3 $4"
 		$command com.socialnmobile.dictapps.notepad.color.note
 		$command org.schabi.newpipe
  }
+while [ 1 ];
+do
+
 printf "${WHITE} "
 [ -f $loc/gamingon ] && gname="${RED} 3. Deactivate Gaming Mode." || gname="${GREEN} 3. Activate Gaming Mode."
 printf "\e[1;101m\nPRO REM'S THOK THAK\e[0m \n"
-printf "\n${SKYBLUE}  1. Disable app\n ${ORANGE} 2. Enable apps\n $gname \n ${VIOLET} 4. Add Apps"
+printf "\n${SKYBLUE}  1. Disable app\n ${ORANGE} 2. Enable apps\n $gname \n ${VIOLET} 4. Add New Apps into Gaming Activation list\n ${WHITE} 5. EXIT"
 echo 
 echo
 printf "\e[1;96mEnter choice:  ${WHITE} "
@@ -157,29 +160,31 @@ fi
 case $o in
 1) printf "\e[1;91mDisabling apps \e[0m \n"
 echo
-echo "Enter package name: "
+echo "Enter package name / press x to exit: "
 read d
 while [ "$d" != "x" ]
 do 
 su -c pm disable $d
 echo
-printf "Enter package name:  "
+printf "Enter package name / press x to exit: "
 read d;
 done
+clear
 ;;
 
 2) echo "Enabling apps..."
 echo
 su -c pm list packages -d
 echo 
-echo "Enter package name: "
+echo "Enter package name / press x to exit: "
 read e
 while [ "$e" != "x" ]
 do 
 su -c pm enable $e
-echo "Enter package name: "
+echo "Enter package name / press x to exit: "
 read e;
 done
+clear
 ;;
 
 3) run(){
@@ -187,34 +192,27 @@ check="$loc1/APPLIST.txt"
 [ ! -f $check ] && echo > $check && echo "com.opera.mini.native" > $check && echo "com.android.chrome" >> $check
 check1="$loc1/forcelist.txt"
 [ ! -f $check1 ] && echo > $check1 && echo "org.lineageos.snap" > $check1 && echo "com.sbi.SBIFreedomPlus" >> $check1
-su -c chattr +a $check1
  if [ ! -f $loc/gamingon ]; then
-echo "Activating Gaming mode..."
+echo > $loc/gamingon 
 gamelist su -c am force-stop
 gamelist su -c pm disable
 while read line;
 do 
 su -c pm disable $line
 done < $check
-echo > $loc/gamingon 
-echo
+
 while read line;
 do 
 su -c am force-stop $line
 done < $check1
-clear
-echo "Gaming Mode Activated"
 else
-echo "Disabling Gaming Mode..."
-rm -rf $loc/gamingon
+
 gamelist su -c pm enable
 while read line;
 do 
 su -c pm enable $line
 done < $check
-echo
-clear
-echo "Gaming Mode Deactivated"
+rm -rf $loc/gamingon
 fi
 }
 spin=( '|' '/' '-' '\' )
@@ -235,10 +233,14 @@ execute(){
    kill $pid
    if [ -f $loc/gamingon ]; then
    echo -ne "\r\e[1;106mACTIVATED GAMING MODE\e[0m                        "
-   echo " "
+   echo -e "\nHit enter to go back to main menu"
+read any
+clear
    else
     echo -ne "\r\e[1;105mDEACTIVATED GAMING MODE\e[0m                         "
-   echo " "
+   echo -e "\nHit enter to go back to main menu"
+read any
+clear
    fi
    
 }
@@ -246,36 +248,45 @@ execute
 ;;
 
 4) clear
-printf "${VIOLET}1. APPLIST\n2. Forcelist ${WHITE} \n\nEnter your choice: \n"
+printf "${VIOLET}1. APPLIST\n2. Forcelist\n${WHITE}3. Main Menu\n\nEnter your choice: \n"
 read choice
 case $choice in
-1)
+1) while [ 1 ]; do
 clear
 printf "List of apps in your APPLIST\n\n"
 check="$loc1/APPLIST.txt"
 printf "${GREEN} "
 cat $check
 printf "${WHITE} \n\n"
-echo "Enter app package name: "
+echo "Enter app package name / press x for main menu: "
 read pack
+if [[ $pack == "x" || $pack == "X" ]]; then
+break
+else
 printf "Are you sure your package name is ${VIOLET} $pack ${WHITE}\n\n"
 printf "Press ${GREEN} Y/y for Yes ${WHITE} or Press ${RED} N/n for No \n\n"
 read opt
 [[ $opt == "Y" || $opt == "y" ]] && echo $pack >> $check && clear && printf "Added ${BLUE} $pack \n" ; 
-[[ $opt == "N" || $opt == "n" ]] && clear && echo "Exiting.."
+[[ $opt == "N" || $opt == "n" ]] && clear && echo "Exiting.." ; continue;
 printf "${WHITE} \n\n ${GREEN}"
 cat $check
 printf "${WHITE} \n"
+fi
+done
+clear
 ;;
-2) 
+2) while [ 1 ]; do
 clear
 printf "List of apps in your Forcelist\n\n"
 check1="$loc1/forcelist.txt"
 printf "${GREEN} "
 cat $check1
 printf "${WHITE} \n\n"
-echo "Enter app package name: "
+echo "Enter app package name or press x for main menu: "
 read pack
+if [[ $pack == "x" || $pack == "X" ]]; then
+break
+else
 printf "Are you sure your package name is ${VIOLET} $pack ${WHITE}\n\n"
 printf "Press ${GREEN} Y/y for Yes ${WHITE} or Press ${RED} N/n for No \n\n"
 read opt
@@ -284,8 +295,17 @@ read opt
 printf "${WHITE} \n\n ${GREEN}"
 cat $check1
 printf "${WHITE} \n"
+fi
+done
+clear
+;;
+3) clear
+continue
 ;;
 esac
 ;;
+5) exit 1
+;;
 esac
- 
+ done
+
