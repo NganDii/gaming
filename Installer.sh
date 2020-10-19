@@ -1,5 +1,5 @@
 bin=/data/data/com.termux/files/usr/bin
-loc=$PWD
+loc=$HOME/gaming
 cat $loc/file > $bin/gaming
 chmod +x $bin/gaming
 clear
