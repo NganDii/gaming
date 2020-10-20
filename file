@@ -312,6 +312,8 @@ git clone https://github.com/NganDii/gaming
 bash ~/gaming/Installer.sh > /dev/null 2>&1
 clear
 echo -e "${GREEN} Updated Successfully"
+echo -e "\n\n${RED} Press Enter to Restart ${WHITE}"
+read any
 gaming
 ;;
 5) [ -f $loc/gamingon ] && rm -rf $loc/gamingon || echo > $loc/gamingon
