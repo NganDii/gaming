@@ -145,7 +145,7 @@ do
 
 printf "${WHITE} "
 [ -f $loc/gamingon ] && gname="${RED} 3. Deactivate Gaming Mode." || gname="${GREEN} 3. Activate Gaming Mode."
-printf "\e[1;101m\nPRO REM'S THOK THAK\e[0m \n"
+printf "\e[1;101m\nAPPLE's GAMING\e[0m \n"
 printf "\n${SKYBLUE}  1. Disable app\n ${ORANGE} 2. Enable apps\n $gname \n ${VIOLET} 4. Add New Apps into Gaming Activation list\n ${YELLOW} 5. Toggle Activate/Deactivate \n ${VIOLET} 6. UPDATE\n ${WHITE} 7. EXIT"
 echo 
 echo
