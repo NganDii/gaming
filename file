@@ -327,9 +327,10 @@ echo -e "${GREEN}"
 grep -n "command" $gamin
 echo -e "\n\n${VIOLET}Enter the line number to delete one by one / Press x to go to main menu${WHITE}"
 read del
-if [ $del == ""]; then
+if [ $del=="" ]; then
 echo -e "${RED}Please input something\n${GREEN}Press enter to continue "
 read lol
+continue
 elif [ $del == x ]; then
 clear
 break
