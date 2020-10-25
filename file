@@ -328,7 +328,8 @@ grep -n "command" $gamin
 echo -e "\n\n${VIOLET}Enter the line number to delete one by one${WHITE}"
 read del
 if [ $del == ""]; then
-echo -e " ${RED}Please input something "
+echo -e " ${RED}Please input something\nPress enter to continue "
+read lol
 else
 sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
