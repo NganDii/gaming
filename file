@@ -150,7 +150,7 @@ do
 printf "${WHITE} "
 [ -f $loc/gamingon ] && gname="${RED} 3. Deactivate Gaming Mode." || gname="${GREEN} 3. Activate Gaming Mode."
 printf "\e[1;101m\nAPPLE's GAMING OPTIMIZER\e[0m \n"
-printf "\n${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. Add New Apps\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps\n ${GREEN} 9. Remove Apps from YourList."
+printf "\n${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. YourList\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps\n ${GREEN} 9. Remove Apps from YourList."
 echo 
 echo
 printf "\e[1;96mEnter choice:  ${WHITE} "
