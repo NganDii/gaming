@@ -309,7 +309,9 @@ continue
 esac
 ;;
 7) 
-exit $?
+pid=$!
+kill $pid
+exit
 ;;
 6) rm -rf ~/gaming
 cd $HOME
