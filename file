@@ -325,7 +325,7 @@ gaming
 5) [ -f $loc/gamingon ] && rm -rf $loc/gamingon || echo > $loc/gamingon
 ;;
 8) any="1"
-while [ $any==1 ];
+while [ "$any" == "1" ];
 do
 clear
 echo -e "${GREEN}"
@@ -349,8 +349,7 @@ any=1
 fi
 fi
 done
-exit
-gaming
+loop
 ;;
 *) echo -e "\nWrong Choice! Please input Valid number and hit enter"
 esac
