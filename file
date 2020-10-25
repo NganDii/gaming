@@ -308,7 +308,7 @@ continue
 ;;
 esac
 ;;
-7) kill
+7) kill -l
 exit 0
 ;;
 6) rm -rf ~/gaming
