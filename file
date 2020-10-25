@@ -15,6 +15,7 @@ WHITE='\e[01;37m'
 BGBL='\e[1;30;47m'
 loc="/sdcard/RemGaming/system"
 loc1="/sdcard/RemGaming"
+gamin="/data/data/com.termux/files/usr/bin/gaming"
 [ ! -d $loc ] && mkdir -p $loc
 
 
@@ -138,7 +139,7 @@ command="$1 $2 $3 $4"
 		$command idm.internet.download.manager.plus
 		$command com.rahul.videoderbeta
 		$command com.socialnmobile.dictapps.notepad.color.note
-		$command org.schabi.newpipe
+  $command org.schabi.newpipe
  }
 while [ 1 ];
 do
@@ -146,7 +147,7 @@ do
 printf "${WHITE} "
 [ -f $loc/gamingon ] && gname="${RED} 3. Deactivate Gaming Mode." || gname="${GREEN} 3. Activate Gaming Mode."
 printf "\e[1;101m\nAPPLE's GAMING\e[0m \n"
-printf "\n${SKYBLUE}  1. Disable app\n ${ORANGE} 2. Enable apps\n $gname \n ${VIOLET} 4. Add New Apps into Gaming Activation list\n ${YELLOW} 5. Toggle Activate/Deactivate \n ${VIOLET} 6. UPDATE\n ${WHITE} 7. EXIT"
+printf "\n${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. Add New Apps\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps"
 echo 
 echo
 printf "\e[1;96mEnter choice:  ${WHITE} "
@@ -232,13 +233,13 @@ execute(){
    run > /dev/null 2>&1
    kill $pid
    if [ -f $loc/gamingon ]; then
-   echo -ne "\r\e[1;106mACTIVATED GAMING MODE\e[0m                        "
-   echo -e "\nHit enter to go back to main menu"
+   echo -ne "\r\e[1;101mACTIVATED GAMING MODE\e[0m                        "
+   echo -e "\n\n${VIOLET}Hit enter to go back to main menu"
 read any
 clear
    else
-    echo -ne "\r\e[1;105mDEACTIVATED GAMING MODE\e[0m                         "
-   echo -e "\nHit enter to go back to main menu"
+    echo -ne "\r\e[1;101mDEACTIVATED GAMING MODE\e[0m                         "
+   echo -e "\n\n${VIOLET}Hit enter to go back to main menu"
 read any
 clear
    fi
@@ -317,6 +318,16 @@ read any
 gaming
 ;;
 5) [ -f $loc/gamingon ] && rm -rf $loc/gamingon || echo > $loc/gamingon
+;;
+8) clear
+echo -e "${VIOLET}"
+grep -n "command" $gamin
+echo -e "\n\n${GREEN}Enter the line number to delete${WHITE}"
+read del
+sed -i "${del}d" $gamin
+echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress x to goto main menu"
+read any
+clear
 ;;
 *) echo -e "\nWrong Choice! Please input Valid number and hit enter"
 esac
