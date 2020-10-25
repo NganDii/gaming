@@ -149,8 +149,8 @@ do
 
 printf "${WHITE} "
 [ -f $loc/gamingon ] && gname="${RED} 3. Deactivate Gaming Mode." || gname="${GREEN} 3. Activate Gaming Mode."
-printf "\e[1;101m\nAPPLE's GAMING\e[0m \n"
-printf "\n${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. Add New Apps\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps"
+printf "\e[1;101m\nAPPLE's GAMING OPTIMIZER\e[0m \n"
+printf "\n${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. Add New Apps\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps\n ${GREEN}9. Remove Apps from YourList."
 echo 
 echo
 printf "\e[1;96mEnter choice:  ${WHITE} "
@@ -338,6 +338,33 @@ elif [[ "$del" == "x" ]]; then
 loop
 else
 sed -i "${del}d" $gamin
+echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
+read any
+if [[ "$any" == "x" ]]; then
+loop
+else
+any=1
+fi
+fi
+done
+loop
+;;
+9) any="1"
+while [ "$any" == "1" ];
+do
+clear
+echo -e "${GREEN}"
+grep -n "" /sdcard/RemGaming/APPLIST.txt
+echo -e "\n\n${VIOLET}Enter the line number to delete one by one / Press x to go to main menu${WHITE}"
+read del
+if [[ "$del" == "" ]]; then
+echo -e "${RED}Please input something\n${GREEN}Press enter to continue "
+read lol
+continue
+elif [[ "$del" == "x" ]]; then
+loop
+else
+sed -i "${del}d" /sdcard/RemGaming/APPLIST.txt
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
 read any
 if [[ "$any" == "x" ]]; then
