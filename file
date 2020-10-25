@@ -327,7 +327,7 @@ echo -e "${GREEN}"
 grep -n "command" $gamin
 echo -e "\n\n${VIOLET}Enter the line number to delete one by one${WHITE}"
 read del
-if [[ $del < "25" || $del > "142" ]]; then
+if [[ "$del" < "25" || "$del" > "142" ]]; then
 echo "Wrong choice"
 continue
 else
