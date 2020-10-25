@@ -309,7 +309,7 @@ continue
 esac
 ;;
 7) 
-break
+exit $?
 ;;
 6) rm -rf ~/gaming
 cd $HOME
