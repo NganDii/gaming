@@ -141,6 +141,11 @@ command="$1 $2 $3 $4"
 		$command com.socialnmobile.dictapps.notepad.color.note
                 $command org.schabi.newpipe
  }
+loop(){
+clear
+exit
+gaming
+}
 while [ 1 ];
 do
 
@@ -332,15 +337,13 @@ echo -e "${RED}Please input something\n${GREEN}Press enter to continue "
 read lol
 continue
 elif [[ "$del" == "x" ]]; then
-clear
-break
+loop
 else
 sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
 read any
 if [[ "$any" == "x" ]]; then
-clear
-break
+loop
 else
 any=1
 fi
