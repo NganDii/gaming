@@ -149,8 +149,24 @@ do
 
 printf "${WHITE} "
 [ -f $loc/gamingon ] && gname="${RED} 3. Deactivate Gaming Mode." || gname="${GREEN} 3. Activate Gaming Mode."
-printf "\e[1;101m\nAPPLE's GAMING OPTIMIZER\e[0m \n"
-printf "\n${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. YourList\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps\n ${GREEN} 9. Remove Apps from YourList."
+logo(){
+reming=("A" "AP" "APP" "APPL" "APPLE" "APPLE'" "APPLE's" "APPLE's_" "APPLE's_G" "APPLE's_GA" "APPLE's_GAM" "APPLE's_GAMI" "APPLE's_GAMIN" "APPLE's_GAMING" "APPLE's_GAMING_" "APPLE's_GAMING_O" "APPLE's_GAMING_OP" "APPLE's_GAMING_OPT" "APPLE's_GAMING_OPTI" "APPLE's_GAMING_OPTIM" "APPLE's_GAMING_OPTIMI" "APPLE's_GAMING_OPTIMIZ"  "APPLE's_GAMING_OPTIMIZE" "APPLE's_GAMING_OPTIMIZER"
+
+)
+while [ 1 ]
+do
+        clear
+        for i in ${reming[@]}
+        do
+                echo -ne  "\r\e[1;101m$i\e[0m"
+                sleep 0.001
+        done
+        echo -e "\n\n"
+        break                                         
+done
+}
+logo 
+printf "${SKYBLUE}  1. Disable app    \t ${ORANGE}       2. Enable apps\n $gname\t${VIOLET}4. YourList\n ${YELLOW} 5. Activate/Deactivate \t${CYAN}6. UPDATE${WHITE}\n  7. EXIT\t                ${SKYBLUE}8. Remove Apps\n ${GREEN} 9. Remove Apps from YourList."
 echo 
 echo
 printf "\e[1;96mEnter choice:  ${WHITE} "
@@ -162,7 +178,8 @@ sleep 2s
 exit 1
 fi
 case $o in
-1) printf "\e[1;91mDisabling apps \e[0m \n"
+1) logo
+printf "\e[1;91mDisabling apps \e[0m \n"
 echo
 echo "Enter package name / press x to exit: "
 read d
@@ -176,7 +193,8 @@ done
 clear
 ;;
 
-2) echo "Enabling apps..."
+2) logo
+echo "Enabling apps..."
 echo
 su -c pm list packages -d
 echo 
@@ -191,7 +209,8 @@ done
 clear
 ;;
 
-3) run(){
+3) logo
+run(){
 check="$loc1/APPLIST.txt"
 [ ! -f $check ] && echo > $check && echo "com.opera.mini.native" > $check && echo "com.android.chrome" >> $check
 check1="$loc1/forcelist.txt"
@@ -252,6 +271,7 @@ execute
 ;;
 
 4) clear
+logo
 printf "${VIOLET}1. APPLIST\n2. Forcelist\n${WHITE}3. Main Menu\n\nEnter your choice: \n"
 read choice
 case $choice in
@@ -324,7 +344,8 @@ gaming
 ;;
 5) [ -f $loc/gamingon ] && rm -rf $loc/gamingon || echo > $loc/gamingon
 ;;
-8) any="1"
+8) logo
+any="1"
 while [ "$any" == "1" ];
 do
 clear
@@ -351,7 +372,8 @@ fi
 done
 loop
 ;;
-9) any="1"
+9) logo
+any="1"
 while [ "$any" == "1" ];
 do
 clear
