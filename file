@@ -332,6 +332,7 @@ sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
 read any
 if [ $any == x ]; then
+clear
 break
 else
 any=1
