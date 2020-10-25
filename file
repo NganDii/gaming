@@ -319,15 +319,25 @@ gaming
 ;;
 5) [ -f $loc/gamingon ] && rm -rf $loc/gamingon || echo > $loc/gamingon
 ;;
-8) clear
-echo -e "${VIOLET}"
+8) any="1"
+while [ $any==1 ];
+do
+clear
+echo -e "${GREEN}"
 grep -n "command" $gamin
-echo -e "\n\n${GREEN}Enter the line number to delete${WHITE}"
+echo -e "\n\n${VIOLET}Enter the line number to delete${WHITE}"
 read del
 sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress x to goto main menu"
 read any
-clear
+if [ $any == x ]; then
+break
+else
+any=1
+fi
+done
+exit
+gaming
 ;;
 *) echo -e "\nWrong Choice! Please input Valid number and hit enter"
 esac
