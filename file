@@ -325,11 +325,13 @@ do
 clear
 echo -e "${GREEN}"
 grep -n "command" $gamin
-echo -e "\n\n${VIOLET}Enter the line number to delete one by one${WHITE}"
+echo -e "\n\n${VIOLET}Enter the line number to delete one by one/Press x to go to main menu${WHITE}"
 read del
 if [ $del == ""]; then
 echo -e "${RED}Please input something\n${GREEN}Press enter to continue "
 read lol
+elif [ $del == "x" ]
+break
 else
 sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
