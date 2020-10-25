@@ -330,7 +330,7 @@ read del
 if [ $del == "" ]; then
 echo -e "${RED}Please input something\n${GREEN}Press enter to continue "
 read lol
-elif [ $del == "x" ]
+elif [ $del == "x" ]; then
 break
 else
 sed -i "${del}d" $gamin
