@@ -327,18 +327,18 @@ echo -e "${GREEN}"
 grep -n "command" $gamin
 echo -e "\n\n${VIOLET}Enter the line number to delete one by one / Press x to go to main menu${WHITE}"
 read del
-if [ $del==""]; then
+if [[ "$del" == "" ]]; then
 echo -e "${RED}Please input something\n${GREEN}Press enter to continue "
 read lol
 continue
-elif [ $del=="x"]; then
+elif [[ "$del" == "x" ]]; then
 clear
 break
 else
 sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
 read any
-if [ $any =="x"]; then
+if [[ "$any" == "x" ]]; then
 clear
 break
 else
