@@ -139,7 +139,7 @@ command="$1 $2 $3 $4"
 		$command idm.internet.download.manager.plus
 		$command com.rahul.videoderbeta
 		$command com.socialnmobile.dictapps.notepad.color.note
-  $command org.schabi.newpipe
+                $command org.schabi.newpipe
  }
 while [ 1 ];
 do
@@ -327,6 +327,10 @@ echo -e "${GREEN}"
 grep -n "command" $gamin
 echo -e "\n\n${VIOLET}Enter the line number to delete one by one${WHITE}"
 read del
+if [ $del < "25" || $del > "142" ]; then
+echo "Wrong choice"
+continue
+else
 sed -i "${del}d" $gamin
 echo -e "\n${RED}Deleted line $del successfully ${WHITE}\n\nPress enter to continue deleting or press x to goto main menu"
 read any
@@ -334,6 +338,7 @@ if [ $any == x ]; then
 break
 else
 any=1
+fi
 fi
 done
 exit
