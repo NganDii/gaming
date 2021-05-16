@@ -22,6 +22,14 @@ gamin="/data/data/com.termux/files/usr/bin/gaming"
 # APP LIST TO BE ENABLED/DISABLED
 gamelist(){
 command="$1 $2 $3 $4"
+		$command cn.wps.moffice_i18n
+		$command com.viki.android
+		$command com.battlebot.dday
+		$command com.paprbit.dcoder
+		$command com.opera.browser
+		$command com.sika524.android.quickshortcut
+		$command com.omgodse.notally
+		$command com.aurora.store
 		$command com.android.chrome
 		$command com.android.vending
 		$command com.instagram.android
